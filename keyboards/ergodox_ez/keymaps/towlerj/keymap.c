@@ -29,12 +29,31 @@ enum custom_keycodes {
   ST_MACRO_10,
 };
 
+enum {
+	TD_G_COPY=0,
+	TD_K_PASTE=1,
+	TD_Z_UNDO
+};
+
+
+
+
+
+
+qk_tap_dance_action_t tap_dance_actions[] = {
+	// d is d, held d is copy
+	[TD_G_COPY] = ACTION_TAP_DANCE_DOUBLE(KC_G, LCTL(KC_C) ),
+	[TD_K_PASTE] = ACTION_TAP_DANCE_DOUBLE(KC_K, LCTL(KC_V) ),
+	[TD_Z_UNDO] = ACTION_TAP_DANCE_DOUBLE(KC_Z, LCTL(KC_Z))
+};
+
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
     KC_LGUI,        KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           TG(2),                                          TG(3),          KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MINUS,
     KC_DELETE,      KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           LCTL(KC_C),                                   LCTL(KC_V),     KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLASH,
-    TG(5),          KC_A,           KC_S,           KC_D,           LSFT_T(KC_F),   KC_G,                                                                           KC_H,           RSFT_T(KC_J),   KC_K,           KC_L,           KC_SCOLON,      KC_EQUAL,
-    KC_QUOTE,       KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,           KC_TAB,                                         LALT_T(KC_APPLICATION),KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_UP,          TG(4),
+    TG(5),          KC_A,           KC_S,           KC_D,           LSFT_T(KC_F),  TD(TD_G_COPY),                                                                           KC_H,           RSFT_T(KC_J),  TD(TD_K_PASTE),           KC_L,           KC_SCOLON,      KC_EQUAL,
+    KC_QUOTE,       TD(TD_Z_UNDO),           KC_X,           KC_C,           KC_V,           KC_B,           KC_TAB,                                         LALT_T(KC_APPLICATION),KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_UP,          TG(4),
     TG(1),          KC_GRAVE,       ST_MACRO_0,  ST_MACRO_1,     ST_MACRO_10,                                                                                                     KC_SLASH,       KC_APPLICATION, KC_LEFT,        KC_DOWN,        KC_RIGHT,
                                                                                                     KC_LALT,        KC_HOME,             KC_PGUP,       RCTL_T(KC_ESCAPE),
                                                                                                                     KC_END,              KC_PGDOWN,
@@ -114,6 +133,8 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
     [5] = { {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {243,222,234}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {14,255,255}, {14,255,255}, {14,255,255}, {14,255,255}, {14,255,255}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {14,255,255}, {14,255,255}, {14,255,255}, {14,255,255}, {14,255,255}, {141,255,233}, {141,255,233}, {141,255,233}, {141,255,233}, {141,255,233}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81} },
 
 };
+
+
 
 void set_layer_color(int layer) {
   for (int i = 0; i < DRIVER_LED_TOTAL; i++) {
