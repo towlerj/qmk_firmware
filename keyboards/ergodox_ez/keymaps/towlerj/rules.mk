@@ -6,6 +6,7 @@ SRC = matrix.c
 RGBLIGHT_ENABLE = no
 RGB_MATRIX_ENABLE = yes
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 TAP_DANCE_ENABLE = yes
 
@@ -16,3 +17,6 @@ SWAP_HANDS_ENABLE= no # Allow swapping hands of keyboard
 
 =======
 >>>>>>> and adding my own
+=======
+TAP_DANCE_ENABLE = yes
+>>>>>>> added double tap copy, paste undo
