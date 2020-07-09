@@ -55,9 +55,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TG(5),          KC_A,           KC_S,           KC_D,           LSFT_T(KC_F),  TD(TD_G_COPY),                                                                           KC_H,           RSFT_T(KC_J),  TD(TD_K_PASTE),           KC_L,           KC_SCOLON,      KC_EQUAL,
     KC_QUOTE,       TD(TD_Z_UNDO),           KC_X,           KC_C,           KC_V,           KC_B,           KC_TAB,                                         LALT_T(KC_APPLICATION),KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_UP,          TG(4),
     TG(1),          KC_GRAVE,       ST_MACRO_0,  ST_MACRO_1,     ST_MACRO_10,                                                                                                     KC_SLASH,       KC_APPLICATION, KC_LEFT,        KC_DOWN,        KC_RIGHT,
-                                                                                                    KC_LALT,        KC_HOME,             KC_PGUP,       RCTL_T(KC_ESCAPE),
+                                                                                                    LALT_T(KC_ESCAPE),        KC_HOME,             KC_PGUP,       RCTL_T(KC_ESCAPE),
                                                                                                                     KC_END,              KC_PGDOWN,
-                                                                                    LSFT_T(KC_SPACE),KC_ENTER,		LCTL_T(KC_ESCAPE),  RCTL_T(KC_ESCAPE),KC_BSPACE,	KC_SPACE
+                                                                                    LSFT_T(KC_SPACE),KC_ENTER,		KC_LCTRL,  			 KC_RCTRL,KC_BSPACE,	KC_SPACE
   ),
   [1] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_F11,
