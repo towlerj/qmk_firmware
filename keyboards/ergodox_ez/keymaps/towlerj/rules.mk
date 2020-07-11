@@ -16,8 +16,12 @@ TAP_DANCE_ENABLE = yes
 
 TAP_DANCE_ENABLE = yes
 
+<<<<<<< HEAD
 MOUSEKEY_ENABLE = no
 >>>>>>> cleaned up some cruft, removed layer 5, implemented OSM, moved layer toggle, added alt arrows
+=======
+#MOUSEKEY_ENABLE = no
+>>>>>>> added a caps lock key
 UNICODE_ENABLE = no
 NKRO_ENABLE = no
 SWAP_HANDS_ENABLE= no # Allow swapping hands of keyboard
