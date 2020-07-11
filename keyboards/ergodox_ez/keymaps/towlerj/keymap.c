@@ -30,7 +30,6 @@ enum custom_keycodes {
 };
 
 enum {
-	TD_G_COPY=0,
 	TD_K_PASTE=1,
 	TD_Z_UNDO=2,
 	TD_2_FN2
@@ -43,7 +42,6 @@ enum {
 
 qk_tap_dance_action_t tap_dance_actions[] = {
 	// d is d, held d is copy
-	[TD_G_COPY] = ACTION_TAP_DANCE_DOUBLE(KC_G, LCTL(KC_C) ),
 	[TD_K_PASTE] = ACTION_TAP_DANCE_DOUBLE(KC_K, LCTL(KC_V) ),
 	[TD_Z_UNDO] = ACTION_TAP_DANCE_DOUBLE(KC_Z, LCTL(KC_Z)),
 	[TD_2_FN2] = ACTION_TAP_DANCE_DOUBLE(KC_2,KC_F2)
@@ -54,17 +52,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_ergodox_pretty(
     KC_LGUI,        KC_1,           TD(TD_2_FN2),           KC_3,           KC_4,           KC_5,           TG(2),                                          TG(3),          KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_MINUS,
     KC_DELETE,      KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,           LCTL(KC_C),                                   LCTL(KC_V),     KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_BSLASH,
-    TG(5),          KC_A,           KC_S,           KC_D,           LSFT_T(KC_F),  TD(TD_G_COPY),                                                                           KC_H,           RSFT_T(KC_J),  TD(TD_K_PASTE),           KC_L,           KC_SCOLON,      KC_EQUAL,
-    KC_QUOTE,       TD(TD_Z_UNDO),           KC_X,           KC_C,           KC_V,           KC_B,           KC_TAB,                                         LALT_T(KC_APPLICATION),KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_UP,          TG(4),
-    TG(1),          KC_GRAVE,       ST_MACRO_0,  ST_MACRO_1,     ST_MACRO_10,                                                                                                     KC_SLASH,       KC_APPLICATION, KC_LEFT,        KC_DOWN,        KC_RIGHT,
-                                                                                                    LALT_T(KC_ESCAPE),        KC_HOME,             KC_PGUP,       RCTL_T(KC_ESCAPE),
-                                                                                                                    KC_END,              KC_PGDOWN,
+    TG(1),          KC_A,           KC_S,           KC_D,           LSFT_T(KC_F),  KC_G,                                                                           KC_H,           RSFT_T(KC_J),  TD(TD_K_PASTE),           KC_L,           KC_SCOLON,      KC_EQUAL,
+    KC_QUOTE,       TD(TD_Z_UNDO),           KC_X,           KC_C,           KC_V,           KC_B,           KC_TAB,                                         LALT_T(KC_APPLICATION),KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_UP,          OSL(4),
+    LCTL(KC_C),          KC_GRAVE,       ST_MACRO_0,  ST_MACRO_1,     ST_MACRO_10,                                                                                                     KC_SLASH,       KC_APPLICATION, KC_LEFT,        KC_DOWN,        KC_RIGHT,
+                                                                                                    LALT_T(KC_ESCAPE),        KC_END,             KC_PGUP,       RCTL_T(KC_ESCAPE),
+                                                                                                                    KC_HOME,              KC_PGDOWN,
                                                                                     LSFT_T(KC_SPACE),KC_ENTER,		KC_LCTRL,  			 KC_RCTRL,KC_BSPACE,	KC_SPACE
-  ),
+		  ),
   [1] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_F11,
-    KC_TRANSPARENT, KC_EXLM,        KC_AT,          KC_LCBR,        KC_RCBR,        KC_PIPE,        TO(0),                                          TO(0),          KC_UP,          KC_7,           KC_8,           KC_9,           KC_ASTR,        KC_F12,
-    KC_TRANSPARENT, KC_HASH,        KC_DLR,         KC_LPRN,        KC_RPRN,        KC_GRAVE,                                                                       KC_DOWN,        KC_4,           KC_5,           KC_6,           KC_PLUS,        KC_TRANSPARENT,
+    KC_TRANSPARENT, KC_EXLM,        KC_AT,          KC_LCBR,        LALT(KC_PSCR),        KC_F12,        TO(0),                                          TO(0),          KC_UP,          KC_7,           KC_8,           KC_9,           KC_ASTR,        KC_F12,
+    KC_TRANSPARENT, KC_LEFT,        KC_DOWN,         KC_UP,        KC_RIGHT,        KC_PSCR,                                                                       KC_DOWN,        KC_4,           KC_5,           KC_6,           KC_PLUS,        KC_TRANSPARENT,
     KC_TRANSPARENT, KC_PERC,        KC_CIRC,        KC_LBRACKET,    KC_RBRACKET,    KC_TILD,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_AMPR,        KC_1,           KC_2,           KC_3,           KC_TRANSPARENT,      KC_TRANSPARENT,
     KC_TRANSPARENT, KC_EQUAL,       KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_0,           KC_DOT,         KC_TRANSPARENT,           KC_TRANSPARENT,       KC_TRANSPARENT,
                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
@@ -101,16 +99,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT,
                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
-  [5] = LAYOUT_ergodox_pretty(
-    KC_TRANSPARENT, KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          TO(6),                                          TO(6),          KC_F6,          KC_F7,          KC_F8,          KC_F9,          RESET,          KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, TO(0),                                          TO(0),          KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_1,           KC_2,           KC_3,           KC_4,           KC_5,                                                                           KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           KC_TRANSPARENT,
-    KC_TRANSPARENT, LCTL(KC_Z),     LCTL(KC_X),     LCTL(KC_C),     LCTL(KC_V),     LALT(KC_TAB),   KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                                                    KC_TRANSPARENT, KC_TRANSPARENT,
-                                                                                    KC_TRANSPARENT, KC_DELETE,      KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
-  ),
 };
 
 
@@ -132,7 +120,6 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
 
     [4] = { {36,231,240}, {36,231,240}, {36,231,240}, {36,231,240}, {36,231,240}, {36,231,240}, {250,159,255}, {36,231,240}, {36,231,240}, {36,231,240}, {250,159,255}, {250,159,255}, {250,159,255}, {36,231,240}, {36,231,240}, {205,255,255}, {205,255,255}, {36,231,240}, {36,231,240}, {36,231,240}, {36,231,240}, {36,231,240}, {36,231,240}, {36,231,240}, {36,231,240}, {36,231,240}, {36,231,240}, {36,231,240}, {36,231,240}, {250,159,255}, {154,255,255}, {154,255,255}, {205,255,255}, {205,255,255}, {36,231,240}, {36,231,240}, {36,231,240}, {36,231,240}, {205,255,255}, {36,231,240}, {205,255,255}, {205,255,255}, {205,255,255}, {205,255,255}, {36,231,240}, {36,231,240}, {36,231,240}, {36,231,240} },
 
-    [5] = { {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {243,222,234}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {14,255,255}, {14,255,255}, {14,255,255}, {14,255,255}, {14,255,255}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81}, {14,255,255}, {14,255,255}, {14,255,255}, {14,255,255}, {14,255,255}, {141,255,233}, {141,255,233}, {141,255,233}, {141,255,233}, {141,255,233}, {0,245,81}, {0,245,81}, {0,245,81}, {0,245,81} },
 
 };
 
