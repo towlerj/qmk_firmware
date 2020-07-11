@@ -5,4 +5,11 @@ COMMAND_ENABLE = no
 SRC = matrix.c
 RGBLIGHT_ENABLE = no
 RGB_MATRIX_ENABLE = yes
+
 TAP_DANCE_ENABLE = yes
+
+MOUSEKEY_ENABLE = no
+UNICODE_ENABLE = no
+NKRO_ENABLE = no
+SWAP_HANDS_ENABLE= no # Allow swapping hands of keyboard
+
