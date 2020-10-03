@@ -74,6 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TG(1),          KC_A,           KC_S,           KC_D,           LSFT_T(KC_F),	KC_G,														KC_H,           RSFT_T(KC_J),	KC_K,           KC_L,           KC_SCOLON,      KC_EQUAL,
     KC_QUOTE,       KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,   KC_TAB,                     LALT_T(KC_APPLICATION),	KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_UP,          OSL(4),
     LCTL(KC_C),          KC_GRAVE,       ST_MACRO_0,  ST_MACRO_1,     ST_MACRO_10,																				KC_SLASH,       KC_APPLICATION, KC_LEFT,        KC_DOWN,        KC_RIGHT,
+<<<<<<< HEAD
                                                                                                     LALT_T(KC_ESCAPE),        KC_END,             KC_PGUP,       RCTL_T(KC_ESCAPE),
                                                                                                                     KC_HOME,              KC_PGDOWN,
                                                                                     LSFT_T(KC_SPACE),KC_ENTER,		KC_LCTRL,  			 KC_RCTRL,KC_BSPACE,	KC_SPACE
@@ -102,12 +103,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     TG(1),          KC_A,           KC_S,           KC_D,           LSFT_T(KC_F),  KC_G,                                                                           KC_H,           RSFT_T(KC_J),  TD(TD_K_PASTE),           KC_L,           KC_SCOLON,      KC_EQUAL,
     KC_QUOTE,       TD(TD_Z_UNDO),           KC_X,           KC_C,           KC_V,           KC_B,           KC_TAB,                                         LALT_T(KC_APPLICATION),KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_UP,          OSL(4),
     LCTL(KC_C),          KC_GRAVE,       ST_MACRO_0,  ST_MACRO_1,     ST_MACRO_10,                                                                                                     KC_SLASH,       KC_APPLICATION, KC_LEFT,        KC_DOWN,        KC_RIGHT,
+=======
+>>>>>>> Removed undo double tap
                                                                                                     LALT_T(KC_ESCAPE),        KC_END,             KC_PGUP,       RCTL_T(KC_ESCAPE),
                                                                                                                     KC_HOME,              KC_PGDOWN,
                                                                                     LSFT_T(KC_SPACE),KC_ENTER,		KC_LCTRL,  			 KC_RCTRL,KC_BSPACE,	KC_SPACE
 		  ),
   [1] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_F11,
+<<<<<<< HEAD
 <<<<<<< HEAD
     KC_TRANSPARENT, KC_EXLM,        KC_AT,          KC_LCBR,        KC_RCBR,        KC_PIPE,        TO(0),                                          TO(0),          KC_UP,          KC_7,           KC_8,           KC_9,           KC_ASTR,        KC_F12,
     KC_TRANSPARENT, KC_HASH,        KC_DLR,         KC_LPRN,        KC_RPRN,        KC_GRAVE,                                                                       KC_DOWN,        KC_4,           KC_5,           KC_6,           KC_PLUS,        KC_TRANSPARENT,
@@ -116,6 +120,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_EXLM,        KC_AT,          KC_LCBR,        LALT(KC_PSCR),        KC_F12,        TO(0),                                          TO(0),          KC_UP,          KC_7,           KC_8,           KC_9,           KC_ASTR,        KC_F12,
     KC_TRANSPARENT, KC_LEFT,        KC_DOWN,         KC_UP,        KC_RIGHT,        KC_PSCR,                                                                       KC_DOWN,        KC_4,           KC_5,           KC_6,           KC_PLUS,        KC_TRANSPARENT,
 >>>>>>> cleaned up some cruft, removed layer 5, implemented OSM, moved layer toggle, added alt arrows
+=======
+    KC_TRANSPARENT, KC_EXLM,        KC_AT,          KC_LCBR,        LALT(KC_PSCR),  KC_F12,        TO(0),                                          TO(0),          KC_UP,          KC_7,           KC_8,           KC_9,           KC_ASTR,        KC_F12,
+    KC_TRANSPARENT, KC_LEFT,        KC_DOWN,        KC_UP,			KC_RIGHT,       KC_PSCR,                                                                       KC_DOWN,        KC_4,           KC_5,           KC_6,           KC_PLUS,        KC_TRANSPARENT,
+>>>>>>> Removed undo double tap
     KC_TRANSPARENT, KC_PERC,        KC_CIRC,        KC_LBRACKET,    KC_RBRACKET,    KC_TILD,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_AMPR,        KC_1,           KC_2,           KC_3,           KC_TRANSPARENT,      KC_TRANSPARENT,
     KC_TRANSPARENT, KC_EQUAL,       KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_0,           KC_DOT,         KC_TRANSPARENT,           KC_TRANSPARENT,       KC_TRANSPARENT,
                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
