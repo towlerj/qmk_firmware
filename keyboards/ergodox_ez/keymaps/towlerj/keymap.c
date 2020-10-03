@@ -31,11 +31,15 @@ enum custom_keycodes {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 73c6eaa34eceb8673ea4200c9557ef1283cb72de
 enum {
 	TD_K_PASTE=1,
 	TD_Z_UNDO=2,
 	TD_2_FN2=3,
 	TD_CPL_TOG
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 enum {
@@ -49,6 +53,8 @@ enum {
 >>>>>>> added 2/F2
 =======
 >>>>>>> added a caps lock key
+=======
+>>>>>>> 73c6eaa34eceb8673ea4200c9557ef1283cb72de
 };
 
 
@@ -60,6 +66,9 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 	// d is d, held d is copy
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 73c6eaa34eceb8673ea4200c9557ef1283cb72de
 	[TD_K_PASTE] = ACTION_TAP_DANCE_DOUBLE(KC_K, LCTL(KC_V) ),
 	[TD_Z_UNDO] = ACTION_TAP_DANCE_DOUBLE(KC_Z, LCTL(KC_Z)),
 	[TD_2_FN2] = ACTION_TAP_DANCE_DOUBLE(KC_2,KC_F2),
@@ -75,6 +84,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_QUOTE,       KC_Z,           KC_X,           KC_C,           KC_V,           KC_B,   KC_TAB,                     LALT_T(KC_APPLICATION),	KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_UP,          OSL(4),
     LCTL(KC_C),          KC_GRAVE,       ST_MACRO_0,  ST_MACRO_1,     ST_MACRO_10,																				KC_SLASH,       KC_APPLICATION, KC_LEFT,        KC_DOWN,        KC_RIGHT,
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 73c6eaa34eceb8673ea4200c9557ef1283cb72de
                                                                                                     LALT_T(KC_ESCAPE),        KC_END,             KC_PGUP,       RCTL_T(KC_ESCAPE),
                                                                                                                     KC_HOME,              KC_PGDOWN,
                                                                                     LSFT_T(KC_SPACE),KC_ENTER,		KC_LCTRL,  			 KC_RCTRL,KC_BSPACE,	KC_SPACE
@@ -83,6 +95,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_F11,
     KC_TRANSPARENT, KC_EXLM,        KC_AT,          KC_LCBR,        LALT(KC_PSCR),  KC_F12,        TO(0),                                          TO(0),          KC_UP,          KC_7,           KC_8,           KC_9,           KC_ASTR,        KC_F12,
     KC_TRANSPARENT, KC_LEFT,        KC_DOWN,        KC_UP,			KC_RIGHT,       KC_PSCR,                                                                       KC_DOWN,        KC_4,           KC_5,           KC_6,           KC_PLUS,        KC_TRANSPARENT,
+<<<<<<< HEAD
 =======
 =======
 	[TD_G_COPY] = ACTION_TAP_DANCE_DOUBLE(KC_G, LCTL(KC_C) ),
@@ -124,6 +137,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TRANSPARENT, KC_EXLM,        KC_AT,          KC_LCBR,        LALT(KC_PSCR),  KC_F12,        TO(0),                                          TO(0),          KC_UP,          KC_7,           KC_8,           KC_9,           KC_ASTR,        KC_F12,
     KC_TRANSPARENT, KC_LEFT,        KC_DOWN,        KC_UP,			KC_RIGHT,       KC_PSCR,                                                                       KC_DOWN,        KC_4,           KC_5,           KC_6,           KC_PLUS,        KC_TRANSPARENT,
 >>>>>>> Removed undo double tap
+=======
+>>>>>>> 73c6eaa34eceb8673ea4200c9557ef1283cb72de
     KC_TRANSPARENT, KC_PERC,        KC_CIRC,        KC_LBRACKET,    KC_RBRACKET,    KC_TILD,        KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_AMPR,        KC_1,           KC_2,           KC_3,           KC_TRANSPARENT,      KC_TRANSPARENT,
     KC_TRANSPARENT, KC_EQUAL,       KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                                                                                 KC_0,           KC_DOT,         KC_TRANSPARENT,           KC_TRANSPARENT,       KC_TRANSPARENT,
                                                                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,
@@ -162,6 +177,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
   [5] = LAYOUT_ergodox_pretty(
     KC_TRANSPARENT, KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,          TO(6),                                          TO(6),          KC_F6,          KC_F7,          KC_F8,          KC_F9,          RESET,          KC_TRANSPARENT,
@@ -176,6 +192,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 >>>>>>> and adding my own
 =======
 >>>>>>> cleaned up some cruft, removed layer 5, implemented OSM, moved layer toggle, added alt arrows
+=======
+>>>>>>> 73c6eaa34eceb8673ea4200c9557ef1283cb72de
 };
 
 
@@ -199,6 +217,7 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 };
 
@@ -217,6 +236,13 @@ const uint8_t PROGMEM ledmap[][DRIVER_LED_TOTAL][3] = {
 
 
 >>>>>>> added double tap copy, paste undo
+=======
+
+};
+
+
+
+>>>>>>> 73c6eaa34eceb8673ea4200c9557ef1283cb72de
 void set_layer_color(int layer) {
   for (int i = 0; i < DRIVER_LED_TOTAL; i++) {
     HSV hsv = {
