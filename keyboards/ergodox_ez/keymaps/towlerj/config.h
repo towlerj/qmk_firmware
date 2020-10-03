@@ -11,9 +11,15 @@
 #define DISABLE_RGB_MATRIX_JELLYBEAN_RAINDROPS
 #define DISABLE_RGB_MATRIX_RAINDROPS
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> cleaned up some cruft, removed layer 5, implemented OSM, moved layer toggle, added alt arrows
 
 #define ONE_SHOT_TAP_TOGGLE 3
 #define ONESHOT_TIMEOUT 2000
 
+<<<<<<< HEAD
 =======
 >>>>>>> and adding my own
+=======
+>>>>>>> cleaned up some cruft, removed layer 5, implemented OSM, moved layer toggle, added alt arrows
