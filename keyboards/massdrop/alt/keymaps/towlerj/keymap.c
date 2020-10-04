@@ -9,6 +9,12 @@ enum alt_keycodes {
     DBG_MOU,               //DEBUG Toggle Mouse Prints
     MD_BOOT,               //Restart into bootloader after hold timeout
     ALT_DEL,               //Added to map left alt + backspace to delete
+	ST_CHROME,
+	ST_TURING,
+	ST_FIRE,
+	ST_GREP,
+	ST_LS,
+	ST_PS,
 };
 
 // Friendly layer names
@@ -16,16 +22,24 @@ enum alt_layers {
     DEF = 0,
     ALT,
     FUNC,
-    SUPR
+    SUPR,
+};
+
+enum {
+	TD_CPL_TOG,
+};
+
+qk_tap_dance_action_t tap_dance_actions[] = {
+	[TD_CPL_TOG] = ACTION_TAP_DANCE_DOUBLE(KC_Y,KC_CAPSLOCK),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [DEF] = LAYOUT_65_ansi_blocker(
-        KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,    KC_7,    KC_8,    KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSPC, KC_DEL,
-        KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSLS, KC_HOME,
-        KC_CAPS, KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,          KC_ENT,  KC_PGUP,
-        KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,          KC_UP,   KC_PGDN,
-        KC_LCTL, KC_LGUI, MO(SUPR),                           KC_SPC,                             KC_RALT, MO(FUNC),KC_LEFT, KC_DOWN, KC_RGHT
+        KC_ESC,  		  		KC_1,	KC_2,    KC_3,    KC_4,			KC_5,    KC_6,    			KC_7,    		 KC_8,    KC_9,    KC_0,    KC_MINS,	KC_EQL,  KC_BSPC, KC_DEL,
+        KC_TAB,  		  		KC_Q,	KC_W,    KC_E,    KC_R,			KC_T,    TD(TD_CPL_TOG),	KC_U,    		 KC_I,    KC_O,    KC_P,    KC_LBRC,	KC_RBRC, KC_BSLS, KC_HOME,
+        LT(FUNC, KC_TAB), 		KC_A,	KC_S,    KC_D,    LSFT_T(KC_F),	KC_G,    KC_H,    			RSFT_T(KC_J),    KC_K,    KC_L,    KC_SCLN, KC_QUOT,	KC_ENT,  KC_PGUP,
+        MT(KC_LSFT, KC_LGUI),	KC_Z,	KC_X,    KC_C,    KC_V,			KC_B,    KC_N,    			KC_M,    		 KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT,	KC_UP,   KC_PGDN,
+        KC_LCTL, KC_APPLICATION, MO(SUPR),                           KC_SPC,								KC_RALT, OSL(SUPR), 				KC_LEFT,	KC_DOWN, KC_RGHT
     ),
     [ALT] = LAYOUT_65_ansi_blocker(
         _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
@@ -39,14 +53,14 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         _______, RGB_SPD, RGB_VAI, RGB_SPI, RGB_HUI, RGB_SAI, _______, U_T_AUTO,U_T_AGCR,_______, KC_PSCR, KC_SLCK, KC_PAUS, _______, KC_END,
         _______, RGB_RMOD,RGB_VAD, RGB_MOD, RGB_HUD, RGB_SAD, _______, _______, _______, _______, _______, _______,          _______, KC_VOLU,
         _______, RGB_TOG, _______, _______, _______, MD_BOOT, NK_TOGG, DBG_TOG, _______, TG(ALT), _______, _______,          KC_PGUP, KC_VOLD,
-        _______, _______, KC_LALT,                            _______,                            _______, _______, KC_HOME, KC_PGDN, KC_END
+        RESET, _______, KC_LALT,                            _______,                            _______, _______, KC_HOME, KC_PGDN, KC_END
     ),
     [SUPR] = LAYOUT_65_ansi_blocker(
-        KC_GRV,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  ALT_DEL, _______,
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, KC_END,
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______, _______,
-        _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______, _______,
-        _______, _______, _______,                            _______,                            _______, _______, KC_HOME, _______, KC_END
+        KC_GRV,		KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12,  ALT_DEL, ST_CHROME,
+        _______, 	_______, _______, _______, _______, _______, _______, _______, _______, _______, ST_PS, _______, _______, _______, KC_END,
+        ST_TURING,	_______, _______, _______, _______, ST_GREP, _______, _______, _______, ST_LS, _______, _______,          _______, _______,
+        ST_FIRE,	_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,          _______, _______,
+        _______, _______, _______,                            _______,                            _______, _______, KC_HOME,	_______, KC_END
     )
 };
 
@@ -125,6 +139,39 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 unregister_code(KC_DEL);
             }
             return false;
+		// JT MACROS
+		case ST_CHROME:
+			if (record->event.pressed) {
+				SEND_STRING("chrome" );
+			}
+            return false;
+		case ST_TURING:
+			if (record->event.pressed) {
+				SEND_STRING("turing" );
+			}
+            return false;
+		case ST_FIRE:
+			if (record->event.pressed) {
+				SEND_STRING("firefox" );
+			}
+            return false;
+		case ST_GREP:
+			if (record->event.pressed) {
+				SEND_STRING(" | grep -i " );
+			}
+            return false;
+		case ST_LS:
+			if (record->event.pressed) {
+				SEND_STRING("ls -la " );
+			}
+            return false;
+		case ST_PS:
+			if (record->event.pressed) {
+				SEND_STRING("ps -ef | grep -i " );
+			}
+            return false;
+
+		// END JT MACROS
         case U_T_AUTO:
             if (record->event.pressed && MODS_SHIFT && MODS_CTRL) {
                 TOGGLE_FLAG_AND_PRINT(usb_extra_manual, "USB extra port manual mode");
