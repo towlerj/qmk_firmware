@@ -1,4 +1,4 @@
-#include "ergodox_ez.h"
+#include QMK_KEYBOARD_H
 
 extern inline void ergodox_board_led_on(void);
 extern inline void ergodox_right_led_1_on(void);

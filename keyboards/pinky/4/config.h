@@ -17,11 +17,11 @@
 #pragma once
 
 /* USB Device descriptor parameter */
-#define VENDOR_ID       0x544E
-#define PRODUCT_ID      0x7034
+#define VENDOR_ID       0xFEED
+#define PRODUCT_ID      0x3060
 #define DEVICE_VER      0x0001
 #define MANUFACTURER    tamanishi
-#define PRODUCT         Pinky4
+#define PRODUCT         Pinky
 #define DESCRIPTION     A split keyboard with 3 or 4 x7 vertically staggered keys and 4 thumb keys
 
 /* key matrix size */

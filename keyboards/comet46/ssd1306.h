@@ -2,6 +2,7 @@
 
 #include <stdbool.h>
 #include <stdio.h>
+#include "pincontrol.h"
 #include "action.h"
 
 enum ssd1306_cmds {
@@ -65,7 +66,7 @@ struct CharacterMatrix {
   bool dirty;
 };
 
-extern struct CharacterMatrix display;
+struct CharacterMatrix display;
 
 bool iota_gfx_init(bool rotate);
 void iota_gfx_task(void);

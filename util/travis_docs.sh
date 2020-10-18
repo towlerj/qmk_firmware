@@ -1,6 +1,5 @@
 #!/bin/bash
 
-source util/travis_utils.sh
 source util/travis_push.sh
 
 if [[ "$TRAVIS_COMMIT_MESSAGE" != *"[skip docs]"* ]] ; then 

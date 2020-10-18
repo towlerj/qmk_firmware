@@ -29,8 +29,12 @@
 #    define SOLENOID_MIN_DWELL 4
 #endif
 
+#ifndef SOLENOID_ACTIVE
+#    define SOLENOID_ACTIVE false
+#endif
+
 #ifndef SOLENOID_PIN
-#    error SOLENOID_PIN not defined
+#    define SOLENOID_PIN F6
 #endif
 
 void solenoid_buzz_on(void);
