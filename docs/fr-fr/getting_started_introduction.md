@@ -4,7 +4,7 @@ Le but de cette page est d'expliquer les informations de base qui vous serons n�
 
 ## Structure de base de QMK
 
-QMK est un fork du projet [tmk_keyboard](https://github.com/tmk/tmk_keyboard) créé par [Jun Wako](https://github.com/tmk). Le code originel de TMK, avec quelques modifications, se trouve dans le dossier `tmk_core`. Les additions que QMK amène au projet se trouvent dans le dossier `quantum`. Les projets de clavier se trouvent dans les dossiers `handwired` et `keyboard`.
+QMK est un fork du projet [tmk_keyboard](https://github.com/tmk/tmk_keyboard) créé par [Jun Wako](https://github.com/tmk). Le code originel de TMK, avec quelques modifications, se trouve dans le dossier `tmk`. Les additions que QMK amène au projet se trouvent dans le dossier `quantum`. Les projets de clavier se trouvent dans les dossiers `handwired` et `keyboard`.
 
 ### Structure du Userspace
 
@@ -43,7 +43,7 @@ Le fichier `config.h` peut être mis à 3 endroits:
 * userspace (`/users/<user>/config.h`)
 * keymap (`/keyboards/<keyboard>/keymaps/<keymap>/config.h`)
 
-Le système de compilation cherche automatiquement les fichiers de configuration dans l'ordre au-dessus. Si vous souhaitez surcharger une configuration définie par un `config.h` précédent, vous devrez d'abord ajouter le code suivant.
+Le système de compilation cherche automatiquement les fichiers de configuration dans l'ordre au dessus. Si vous souhaitez surcharger une configuration définie par un `config.h` précédent, vous devrez d'abord ajouter le code suivant.
 
 ```
 #pragma once
@@ -51,7 +51,7 @@ Le système de compilation cherche automatiquement les fichiers de configuration
 
 Ensuite, pour surcharger l'option du fichier `config.h` précédent, vous devez `#undef` puis `#define` l'option à nouveau.
 
-Voici à quoi l'ensemble du code ressemble une fois regroupé:
+Voici à quoi l'ensemble du code resemble une fois regroupé:
 
 ```
 #pragma once

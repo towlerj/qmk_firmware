@@ -23,7 +23,7 @@ Le prochain Breaking Change est planifié pour le 29 novembre.
 
 ## Quels changements seront inclus?
 
-Pour voir une liste de candidats de breaking changes, vous pouvez regarder la liste des [labels `breaking_change`](https://github.com/qmk/qmk_firmware/pulls?q=is%3Aopen+label%3Abreaking_change+is%3Apr). De nouveaux changements peuvent être ajoutés entre maintenant et lorsque `future` est fermée, et un PR avec ce label n'est pas garanti d'être fusionné.
+Pour voir une liste de candidats de breaking changes, vous pouvez regardez la liste des [labels `breaking_change`](https://github.com/qmk/qmk_firmware/pulls?q=is%3Aopen+label%3Abreaking_change+is%3Apr). De nouveaux changements peuvent être ajoutés entre maintenant et lorsque `future` est fermée, et un PR avec ce label n'est pas garanti d'être fusionné.
 
 Si vous souhaitez que votre breaking change soit inclus dans ce tour, vous devez créer un PR avec le label `breaking_change` et faire en sorte qu'il soit accepté avant que `future` ne soit fermé. Une fois `future` fermé, aucun nouveau breaking change sera accepté.
 
@@ -101,7 +101,7 @@ Ceci est fait immédiatement après la fusion de la branche `future` précédent
     * [ ] Regroupe ChangeLog dans un fichier.
     * [ ] `git commit -m 'Merge point for <DATE> Breaking Change'`
     * [ ] `git push origin future`
-* Actions sur GitHub
+* Actions sur Github
     * [ ] Crée un PR pour `future`
     * [ ] S'assurer que Travis ne relève aucun problème
     * [ ] Fusion le PR `future`
