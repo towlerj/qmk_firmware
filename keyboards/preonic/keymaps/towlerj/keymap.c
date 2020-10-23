@@ -34,7 +34,6 @@ enum preonic_keycodes {
   DVORAK,
   LOWER,
   RAISE,
-  NUMPAD,
   BACKLIT
 };
 
@@ -58,7 +57,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Brite| Ctrl | Alt  | GUI  |Lower |    Space    |Raise | Left | Down |  Up  |Right |
+ * | Ctrl | Alt  | GUI  | Menu |Lower |    Space    |Raise | Left | Down |  Up  |Right |
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_preonic_grid(
@@ -218,13 +217,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           }
           return false;
           break;
-        case NUMPAD:
-          if (record->event.pressed) {
-            set_single_persistent_default_layer(_NUMPAD);
-          }
-          return false;
-          break;
-
         case LOWER:
           if (record->event.pressed) {
             layer_on(_LOWER);
