@@ -11,6 +11,8 @@
 #endif
 
 #define MUSIC_MASK (keycode != KC_NO)
+// JT ADDED
+#define PERMISSIVE_HOLD
 
 /*
  * MIDI options
