@@ -47,6 +47,8 @@ qk_tap_dance_action_t tap_dance_actions[] = {
     [TD_CPL_TOG] = ACTION_TAP_DANCE_DOUBLE(KC_Y,KC_CAPSLOCK)
 };
 // chording
+// I don't actually like this - it's a solution to a porblem I don't have...
+/*
 enum combos {
     HOME_DK,
     END_LS,
@@ -65,7 +67,7 @@ combo_t key_combos[COMBO_COUNT] = {
     [END_LS]   = COMBO(end_ls,   KC_END),
     [DOC_END]  = COMBO(doc_end,  C(KC_END)),
 };
-
+*/
 // End JT additions
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -78,17 +80,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * | Esc  |   A  |   S  |   D  |   F  |   G  |   H  |   J  |   K  |   L  |   ;  |  "   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |   /  |Enter |
+ * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |  Up  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Ctrl | Alt  | GUI  | Menu |Lower |    Space    |Raise | Left | Down |  Up  |Right |
+ * | Ctrl | Alt  | GUI  | Menu |Lower |    Space    |Raise |  /   | Left | Down |Right |
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_preonic_grid(
-    KC_TILD,  KC_1,    KC_2,    KC_3,    KC_4,        KC_5,    KC_6,           KC_7,        KC_8,    KC_9,    KC_0,    KC_BSPC,
+    KC_TILD, KC_1,    KC_2,    KC_3,    KC_4,        KC_5,    KC_6,           KC_7,        KC_8,    KC_9,    KC_0,    KC_BSPC,
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,        KC_T,    TD(TD_CPL_TOG), KC_U,        KC_I,    KC_O,    KC_P,    KC_DEL,
     KC_ESC,  KC_A,    KC_S,    KC_D,    SFT_T(KC_F), KC_G,    KC_H,           SFT_T(KC_J), KC_K,    KC_L,    KC_SCLN, KC_QUOT,
-    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,        KC_B,    KC_N,           KC_M,        KC_COMM, KC_DOT,  KC_SLSH, KC_ENT,
-    KC_LCTL, KC_LALT, KC_LGUI, KC_APP,  LOWER,       KC_SPC,  KC_SPC,         RAISE,       KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT
+    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,        KC_B,    KC_N,           KC_M,        KC_COMM, KC_DOT,  KC_UP,   KC_ENT,
+    KC_LCTL, KC_LALT, KC_LGUI, KC_APP,  LOWER,       KC_SPC,  KC_SPC,         RAISE,       KC_SLSH, KC_LEFT, KC_DOWN, KC_RGHT
 ),
 
 /* Colemak
@@ -141,17 +143,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * | Del  |  F2  |  F4  |  F9  |  F12 |SVlUp | Play |   _  |   +  |   [  |   ]  |  |   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
- * |      |      |      |      |      |SVlDn | Stop |      |      |   {  |   }  |      |
+ * |      |      |      |      |      |SVlDn | Stop |   -  |   =  |   {  |   }  |  /   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |             |      | Home | PDwn | PUp  | End  |
- * `-----------------------------------------------------------------------------------'
+ * |      |      |      |      |      |             |      | Home | End  | PUp  | PDn  |
+ * `--------------------------------------------------------------------------------//---'
  */
 [_LOWER] = LAYOUT_preonic_grid(
-    KC_F12,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,      KC_F10,  KC_F11,
-    KC_GRV,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN,    KC_RPRN, KC_MINS,
+    KC_F12,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,      KC_F6,   KC_F7,   KC_F8,   KC_F9,      KC_F10,  KC_F11,
+    KC_GRV,  KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC,    KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN,    KC_RPRN, KC_MINS,
     KC_DEL,  KC_F2,   KC_F4,   KC_F9,   KC_F12,  S(KC_VOLU), KC_MPLY, KC_UNDS, KC_PLUS, KC_LBRC,    KC_RBRC, KC_PIPE,
-    _______, _______, _______, _______, _______, S(KC_VOLD), KC_MSTP, _______, _______, S(KC_LBRC), S(KC_RBRC), _______,
-    _______, _______, _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGDN,    KC_PGUP, KC_END
+    _______, _______, _______, _______, _______, S(KC_VOLD), KC_MSTP, KC_MINS, KC_EQL,  S(KC_LBRC), S(KC_RBRC), KC_SLSH,
+    _______, _______, _______, _______, _______, _______,    _______, _______, KC_HOME, KC_END,     KC_PGDN,    KC_PGUP
 ),
 
 /* Raise
