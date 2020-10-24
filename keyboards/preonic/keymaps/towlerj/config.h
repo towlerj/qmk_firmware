@@ -13,7 +13,8 @@
 #define MUSIC_MASK (keycode != KC_NO)
 // JT ADDED
 #define PERMISSIVE_HOLD
-
+#define COMBO_COUNT 4
+#define COMBO_TERM 300
 /*
  * MIDI options
  */
