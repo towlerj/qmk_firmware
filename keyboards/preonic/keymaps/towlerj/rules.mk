@@ -1,3 +1,4 @@
 SRC += muse.c
 TAP_DANCE_ENABLE = yes
 COMBO_ENABLE = yes
+LAYOUTS = LAYOUT_preonic_1x2uR
