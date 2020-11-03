@@ -133,7 +133,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,  KC_T,    TD(TD_CPL_TOGY), TD(TD_UND_U),    KC_I,     KC_O,     KC_P,     KC_BSPC,
     JT_MN2,  KC_A,    KC_S,    KC_D,    KC_F,  KC_G,    KC_H,            TD(TD_CPL_TOGJ), KC_K,     KC_L,     KC_SCLN,  SFT_T(KC_QUOT),
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,  KC_B,    KC_N,            KC_M,            KC_COMM,  KC_DOT,   KC_UP,    JT_EN2,
-    KC_LCTL, KC_LALT, KC_LGUI, JT_AP1,         JT_EN1,  JT_SP3,                           KC_SLSH,  KC_LEFT,  KC_DOWN,  KC_RGHT
+    KC_LCTL, KC_LALT, KC_LGUI, JT_AP1,     JT_EN1,                JT_SP3,                 KC_SLSH,  KC_LEFT,  KC_DOWN,  KC_RGHT
 ),
 
 /* Lower
@@ -146,7 +146,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |      |      |      |      |      |      |   -  |   +  |   {  | PgUp |  \   |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |      |   ?  | Home | PgDn | End  |
+ * |      |      |      |      |             |             |   ?  | Home | PgDn | End  |
  * `-----------------------------------------------------------------------------------'
  */
 [_LOWER] = LAYOUT_preonic_2x2u(
@@ -161,19 +161,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |   ~  |      |      |      |  GBP |      |      |      |      |AlPrSc|PrntSn|      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |   `  |      |CtrlW |      |      |CtrlT |      | ShHm | ShNd |      |      |      |
+ * |   `  |      |CtrlW |      |CtrlR |CtrlT |      | ShHm | ShNd |      |      |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * | Del  |CtrlA |CtrlS |      |      |      |      | Alt  | TAB  | Ctrl |      |      |
+ * | Esc  |CtrlA |CtrlS |      |      |      |      | Alt  | TAB  | Ctrl |      |      |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |CtrlZ |CtrlX |CtrlC |CtrlV |      |CtrlN |      |      |      | CtHm |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      | RAlt |      |      |      |      |      |      |      | CtLft| CtEnd| CtRgt|
+ * |      | RAlt |      |      |             |             |      | CtLft| CtEnd| CtRgt|
  * `-----------------------------------------------------------------------------------'
  */
 [_RAISE] = LAYOUT_preonic_2x2u(
-    KC_TILD,  _______, _______, _______, JT_GBP,  _______,  _______, _______,    _______,   A(KC_PSCR), KC_PSCR, _______,
-    KC_GRV,   _______, C(KC_W), _______, _______, C(KC_T),  _______, S(KC_HOME), S(KC_END), _______,    _______, _______,
-    KC_DEL,  C(KC_A), C(KC_S), _______, _______, _______,  _______, KC_LALT,    KC_TAB,    KC_LCTL,    _______, _______,
+    KC_TILD, _______, _______, _______, JT_GBP,  _______,  _______, _______,    _______,   A(KC_PSCR), KC_PSCR, _______,
+    KC_GRV,  _______, C(KC_W), _______, C(KC_R), C(KC_T),  _______, S(KC_HOME), S(KC_END), _______,    _______, _______,
+    KC_ESC,  C(KC_A), C(KC_S), _______, _______, _______,  _______, KC_LALT,    KC_TAB,    KC_LCTL,    _______, _______,
     _______, C(KC_Z), C(KC_X), C(KC_C), C(KC_V), _______,  C(KC_N), _______,    _______,   _______,    JT_CHM, _______,
     _______, KC_RALT, _______, _______, _______,           _______, _______,               JT_CLF,     JT_CND, JT_CRT
 ),
@@ -187,7 +187,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+-------------+------+------+------+------+------|
  * |      |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * |      |      |      |      |      |      |      |      |      |      |      |      |
+ * |      |      |      |      |             |             |      |      |      |      |
  * `-----------------------------------------------------------------------------------'
  */
 [_MEDIA] = LAYOUT_preonic_2x2u(
