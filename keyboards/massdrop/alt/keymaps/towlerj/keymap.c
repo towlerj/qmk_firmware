@@ -29,29 +29,89 @@ enum alt_keycodes {
 
 #define TG_NKRO MAGIC_TOGGLE_NKRO //Toggle 6KRO / NKRO mode
 
+
+// JT additions
+//#define JT_SP1 LT(_MEDIA, KC_SPC)     // Media layer while held, otherwise space
+//#define JT_SP2 LT(_NUMPAD, KC_SPC)    // NumPad layer while held, otherwise space
+//#define JT_SP3 LT(_RAISE, KC_SPC)     // Raise while held, space on tap
+#define JT_SP4 LT(1, KC_SPC)            // Raise while held, space on tap
+
+//#define JT_EN1 LT(_LOWER, KC_ENT)     // Lower while held, enter on tap
+//#define JT_EN2 LT(_MEDIA, KC_ENT)     // Lower while held, enter on tap
+
+//#define JT_AP1 LT(_ADJUST, KC_APP)    // Adjust while held, app/menu on tap
+#define JT_AP2 LT(2, KC_APP)            // Layer 2 while held,app/menu on tap
+
+#define JT_DL3 LT(3, KC_DEL)            // Layer 3 while held, delete on tap
+
+#define JT_CAD C(A(KC_DEL))             // Control Alt Delete
+#define JT_CSL C(S(KC_LEFT))            // Control Shift Left
+#define JT_CSR C(S(KC_RIGHT))           // Control Shift Right
+#define JT_CLF C(KC_LEFT)               // Control Left
+#define JT_CRT C(KC_RIGHT)              // Control Right
+#define JT_CHM C(KC_HOME)               // Control Home
+#define JT_CND C(KC_END)                // Control End
+#define JT_SUP S(KC_UP)                 // Shift Up
+#define JT_SDN S(KC_DOWN)               // Shift Down
+//#define JT_ES1 LT(_MEDIA, KC_ESC)       // Escape when tapped, otherwise switch to numpad
+//#define JT_ES2 LT(_NUMPAD, KC_ESC)      // Escape when tapped, otherwise switch to numpad
+
+
+
+#define JT_MN1 LT(_MEDIA, KC_MINUS)     // Minus when tapped, otherwise media
+#define JT_MN2 LT(_NUMPAD, KC_MINUS)    // Minus when tapped, otherwise numpad
+
+//#define JT_SVU C(S(A(KC_F23)))          // Control, shift, alt F23 - triggers vol up on sonos script
+//#define JT_SVD C(S(A(KC_F22)))          // Control, shift, alt F22 - triggers vol up on sonos script
+
+#define JT_SVU MEH(KC_F23)              // Control, shift, alt F23 - triggers vol up on sonos script
+#define JT_SVD MEH(KC_F22)              // Control, shift, alt F22 - triggers vol up on sonos script
+
+//#define JT_GBP RALT(RSFT(KC_4))          // Should send £ symbol for us int keyboard
+
+
 enum {
-	TD_CPL_TOG
+	TD_CPY,
+    TD_CPJ,
+    //TD_UN_U
 };
+
 qk_tap_dance_action_t tap_dance_actions[] = {
-	[TD_CPL_TOG] = ACTION_TAP_DANCE_DOUBLE(KC_Y,KC_CAPSLOCK)
+    [TD_CPY]    = ACTION_TAP_DANCE_DOUBLE(KC_Y,KC_CAPSLOCK),
+    [TD_CPJ]    = ACTION_TAP_DANCE_DOUBLE(KC_J,KC_CAPSLOCK),
+    //[TD_UN_U]  = ACTION_TAP_DANCE_DOUBLE(KC_U,KC_UNDS)
 };
 
 keymap_config_t keymap_config;
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT(
-        KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,              KC_7,    KC_8,     KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSPC, KC_END,  \
-        KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    TD(TD_CPL_TOG),    KC_U,    KC_I,     KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSLS, KC_HOME, \
-        KC_DEL,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,              KC_J,    KC_K,     KC_L,    KC_SCLN, KC_QUOT,          KC_ENT,  KC_PGUP, \
-        KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,              KC_M,    KC_COMM,  KC_DOT,  KC_SLSH, KC_RSFT,          KC_UP,   KC_PGDN, \
-        KC_LCTL, KC_LGUI, KC_LALT,                            LT(1, KC_SPC),                                 KC_RALT, KC_APP,   KC_LEFT, KC_DOWN, KC_RGHT  \
+        KC_ESC,  KC_1,    KC_2,    KC_3,    KC_4,    KC_5,    KC_6,        KC_7,       KC_8,     KC_9,    KC_0,    KC_MINS, KC_EQL,  KC_BSPC, KC_END,     \
+        KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    TD(TD_CPY),  KC_U,       KC_I,     KC_O,    KC_P,    KC_LBRC, KC_RBRC, KC_BSLS, KC_HOME,    \
+        JT_DL3,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,        TD(TD_CPJ), KC_K,     KC_L,    KC_SCLN, KC_QUOT,          KC_ENT,  KC_PGUP,    \
+        KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,        KC_M,       KC_COMM,  KC_DOT,  KC_SLSH, KC_RSFT,          KC_UP,   KC_PGDN,    \
+        KC_LCTL, KC_LGUI, KC_LALT,                            JT_SP4,                            KC_RALT, JT_AP2,           KC_LEFT, KC_DOWN, KC_RGHT     \
     ),
     [1] = LAYOUT(
-	    KC_GRV,  KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,             KC_F7,   KC_F8,    KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PSCR, LSFT(KC_VOLU), \
-        L_T_BR,  L_PSD,   L_BRI,   L_PSI,   L_EDG_I, _______, _______,           _______, U_T_AGCR, _______, KC_PSCR, KC_SLCK, KC_PAUS, _______, LSFT(KC_VOLD), \
-        L_T_PTD, L_PTP,   L_BRD,   L_PTN,   L_EDG_D, _______, _______,           _______, _______,  _______, _______, _______,          KC_APP,  KC_MSTP ,      \
-        _______, L_T_MD,  L_T_ONF, _______, L_EDG_M, MD_BOOT, TG_NKRO,           _______, _______,  _______, _______, _______,          KC_VOLU, KC_MPLY ,      \
-        _______, KC_LGUI, _______,                            _______,                                       _______, _______, KC_MPRV, KC_VOLD, KC_MNXT        \
+	    KC_GRV,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,      KC_F7,      KC_F8,    KC_F9,   KC_F10,  KC_F11,  KC_F12,  KC_PSCR, JT_CND,     \
+        KC_TILD,  _______, C(KC_W), _______, C(KC_R), C(KC_T), _______,    _______,    _______,  _______, _______, KC_SLCK, KC_PAUS, _______, JT_CHM,     \
+        _______,  C(KC_A), C(KC_S), _______, C(KC_F), _______, _______,    KC_LALT,    KC_TAB,   KC_LCTL, _______, _______,          _______, C(KC_PGUP), \
+        _______,  C(KC_Z), C(KC_V), C(KC_C), C(KC_V), _______, _______,    _______,    _______,  _______, _______, _______,          JT_CHM,  C(KC_PGDN), \
+        _______,  _______, _______,                            _______,                          _______, _______,          JT_CLF,  JT_CND,  JT_CRT      \
+    ),
+    [2] = LAYOUT(
+	    KC_GRV,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,       KC_F7,      KC_F8,    KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______, KC_PSCR,   \
+        L_T_BR,   L_PSD,   L_BRI,   L_PSI,   L_EDG_I, _______, _______,     _______,    U_T_AGCR, _______, _______, KC_SLCK, KC_PAUS, _______, _______,   \
+        L_T_PTD,  L_PTP,   L_BRD,   L_PTN,   L_EDG_D, _______, _______,     _______,    _______,  _______, _______, _______,          _______,  _______,   \
+        _______,  L_T_MD,  L_T_ONF, _______, L_EDG_M, MD_BOOT, TG_NKRO,     _______,    _______,  _______, _______, _______,          KC_VOLU, _______,   \
+        _______,  _______, _______,                            _______,                           _______, _______,          _______, KC_VOLD, _______    \
+    ),
+    [3] = LAYOUT(
+	    _______,  _______, _______, _______, _______, _______, _______,    _______,    _______,   _______, _______, _______,  _______, _______, JT_CAD,   \
+        _______,  _______, _______, _______, _______, _______, _______,    _______,    _______,   _______, _______, _______,  _______, KC_SLEP, _______,  \
+        _______,  _______, _______, KC_MPRV, KC_MNXT, _______, _______,    KC_MPLY,    KC_MSTP,   JT_SVU,  JT_SVD,  _______,           _______, _______,  \
+        _______,  _______, _______, _______, _______, _______, _______,    _______,    _______,   _______, _______, _______,           JT_SUP,  _______,  \
+        _______,  _______, _______,                            _______,                           _______, _______,           JT_CSL,  JT_SDN,  JT_CSR    \
     ),
     /*
     [X] = LAYOUT(
