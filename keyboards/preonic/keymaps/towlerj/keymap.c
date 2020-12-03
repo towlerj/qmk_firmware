@@ -36,7 +36,8 @@ enum preonic_keycodes {
 // JT additions
 #define JT_SP1 LT(_MEDIA, KC_SPC)       // Media layer while held, otherwise space
 #define JT_SP2 LT(_NUMPAD, KC_SPC)      // NumPad layer while held, otherwise space
-#define JT_SP3 LT(_RAISE, KC_SPC)        // Raise while held, space on tap
+#define JT_SP3 LT(_RAISE, KC_SPC)       // Raise while held, space on tap
+#define JT_SP4 LT(_LOWER, KC_SPC)       // Raise while held, space on tap
 
 #define JT_EN1 LT(_LOWER, KC_ENT)       // Lower while held, enter on tap
 #define JT_EN2 LT(_MEDIA, KC_ENT)       // Lower while held, enter on tap
@@ -125,7 +126,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * | Shift|   Z  |   X  |   C  |   V  |   B  |   N  |   M  |   ,  |   .  |  Up  |Enter |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
- * | Ctrl | Alt  | GUI  | Menu |Enter/Lower  | Space/Raise |  /   | Left | Down |Right |
+ * | Ctrl | Alt  | GUI  | Menu |Space/Lower  | Space/Raise |  /   | Left | Down |Right |
  * `-----------------------------------------------------------------------------------'
  */
 [_QWERTY] = LAYOUT_preonic_2x2u(
@@ -133,7 +134,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,  KC_T,    TD(TD_CPL_TOGY), TD(TD_UND_U),    KC_I,     KC_O,     KC_P,     KC_BSPC,
     JT_MN2,  KC_A,    KC_S,    KC_D,    KC_F,  KC_G,    KC_H,            TD(TD_CPL_TOGJ), KC_K,     KC_L,     KC_SCLN,  SFT_T(KC_QUOT),
     KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,  KC_B,    KC_N,            KC_M,            KC_COMM,  KC_DOT,   KC_UP,    JT_EN2,
-    KC_LCTL, KC_LALT, KC_LGUI, JT_AP1,     JT_EN1,                JT_SP3,                 KC_SLSH,  KC_LEFT,  KC_DOWN,  KC_RGHT
+    KC_LCTL, KC_LALT, KC_LGUI, JT_AP1,     JT_SP4,                JT_SP3,                 KC_SLSH,  KC_LEFT,  KC_DOWN,  KC_RGHT
 ),
 
 /* Lower
