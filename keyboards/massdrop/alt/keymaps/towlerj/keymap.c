@@ -53,6 +53,8 @@ enum alt_keycodes {
 #define JT_CND C(KC_END)                // Control End
 #define JT_SUP S(KC_UP)                 // Shift Up
 #define JT_SDN S(KC_DOWN)               // Shift Down
+#define JT_CUP C(KC_UP)                 // Shift Down
+#define JT_CDW C(KC_DOWN)               // Shift Down
 //#define JT_ES1 LT(_MEDIA, KC_ESC)       // Escape when tapped, otherwise switch to numpad
 //#define JT_ES2 LT(_NUMPAD, KC_ESC)      // Escape when tapped, otherwise switch to numpad
 
@@ -102,9 +104,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [2] = LAYOUT(
 	    KC_GRV,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,       KC_F7,      KC_F8,    KC_F9,   KC_F10,  KC_F11,  KC_F12,  _______, KC_PSCR,   \
         L_T_BR,   L_PSD,   L_BRI,   L_PSI,   L_EDG_I, _______, _______,     _______,    U_T_AGCR, _______, _______, KC_SLCK, KC_PAUS, _______, _______,   \
-        L_T_PTD,  L_PTP,   L_BRD,   L_PTN,   L_EDG_D, _______, _______,     _______,    _______,  _______, _______, _______,          _______,  _______,   \
-        _______,  L_T_MD,  L_T_ONF, _______, L_EDG_M, MD_BOOT, TG_NKRO,     _______,    _______,  _______, _______, _______,          KC_VOLU, _______,   \
-        _______,  _______, _______,                            _______,                           _______, _______,          _______, KC_VOLD, _______    \
+        L_T_PTD,  L_PTP,   L_BRD,   L_PTN,   L_EDG_D, _______, _______,     _______,    _______,  _______, _______, _______,          _______, _______,   \
+        _______,  L_T_MD,  L_T_ONF, _______, L_EDG_M, MD_BOOT, TG_NKRO,     _______,    _______,  _______, _______, _______,          JT_CUP,  _______,   \
+        _______,  _______, _______,                            _______,                           _______, _______,          JT_CLF,  JT_CDW,   JT_CRT    \
     ),
     [3] = LAYOUT(
 	    _______,  _______, _______, _______, _______, _______, _______,    _______,    _______,   _______, _______, _______,  _______, _______, JT_CAD,   \
